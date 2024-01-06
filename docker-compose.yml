@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  jenkins:
+    image: jenkins/jenkins:jdk21-preview
+    privileged: true
+    user: jenkins
+    ports:
+      - 8080:8080
+      - 50000:50000
+    container_name: jenkins
+    volumes:
+      - ./jenkins_configuration:/var/jenkins_home
+      - ./docker.sock:/var/run/docker.sock
+  jenkins_db:
+    image: postgres:15.1
+    environment:
+      POSTGRES_DB: jenkins
+      POSTGRES_USER: jenkins
+      POSTGRES_PASSWORD: jenkins
+    ports:
+      - "5432:5432"
