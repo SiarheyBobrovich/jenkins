@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jenkins
+    username: jenkins
+    password: jenkins
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+server:
+  port: 8081
