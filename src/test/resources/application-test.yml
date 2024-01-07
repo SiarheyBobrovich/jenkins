@@ -2,5 +2,4 @@ spring:
   datasource:
     url: jdbc:tc:postgresql:15.1:///jenkins
   jpa:
-    hibernate:
-      ddl-auto: create
+    show-sql: true

@@ -2,6 +2,7 @@ package ru.clevertec.jenkins.integration.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.context.jdbc.Sql;
 import ru.clevertec.jenkins.entity.House;
 import ru.clevertec.jenkins.entity.Person;
 import ru.clevertec.jenkins.integration.IntegrationTest;
@@ -12,6 +13,7 @@ import java.util.UUID;
 
 @IntegrationTest
 @RequiredArgsConstructor
+@Sql(scripts = "classpath:db/2_data.sql")
 public class HouseRepositoryTest {
 
     private final HouseRepository houseRepository;
@@ -37,7 +39,6 @@ public class HouseRepositoryTest {
                 .build();
 
         House minsk = House.builder()
-                .uuid(UUID.randomUUID())
                 .city("Минск")
                 .address("Какая-то улица, какой-то дом")
                 .owners(List.of(ownerTenant1, ownerTenant2))
