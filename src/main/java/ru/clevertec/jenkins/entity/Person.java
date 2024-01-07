@@ -20,6 +20,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -53,10 +54,11 @@ public class Person {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     House residency;
 
+    @Builder.Default
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @ManyToMany(fetch = FetchType.LAZY,
             mappedBy = "owners",
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    List<House> ownedHouses;
+    List<House> ownedHouses = new ArrayList<>();
 }
