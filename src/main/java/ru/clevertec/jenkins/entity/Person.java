@@ -2,6 +2,7 @@ package ru.clevertec.jenkins.entity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -48,6 +49,9 @@ public class Person {
 
     @Column(name = "surname", nullable = false)
     String surname;
+
+    @Embedded
+    Passport passport;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude

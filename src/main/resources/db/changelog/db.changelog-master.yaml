@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: db/changelog/changelogs/1_schema.sql
+  - include:
+      file: db/changelog/changelogs/2_person_passport.sql
